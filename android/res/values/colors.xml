@@ -6,4 +6,5 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorRed">#C11515</color>
     <color name="error_color">#FF1100</color>
+    <color name="colorYellow">#FFFF00</color>
 </resources>

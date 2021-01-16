@@ -13,12 +13,9 @@
         android:layout_width="153dp"
         android:layout_height="69dp"
 
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="128dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="32dp"
         android:text="Create Room"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/roomCode" />
 
@@ -27,13 +24,13 @@
         android:layout_width="152dp"
         android:layout_height="71dp"
 
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="128dp"
+        android:layout_marginStart="178dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="131dp"
         android:text="Join Room"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createRoomButton" />
+        app:layout_constraintStart_toEndOf="@+id/createRoomButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/generatedRoomCode"
@@ -51,16 +48,12 @@
         android:id="@+id/textView"
         android:layout_width="292dp"
         android:layout_height="64dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="37dp"
         android:text="Create Room: Create a room and share the code with your friend to play togheter."
         android:textColor="@color/ic_background_color"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,31 +61,29 @@
         android:id="@+id/textView2"
         android:layout_width="288dp"
         android:layout_height="59dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="49dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="52dp"
         android:text="Join room: Insert in the box below the code received by your friend and join the room."
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/roomCode"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/roomCode"
         android:layout_width="195dp"
         android:layout_height="58dp"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="131dp"
+        android:layout_marginStart="253dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="283dp"
         android:text="TextView"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

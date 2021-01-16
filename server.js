@@ -32,25 +32,29 @@ wsServer.on("request", function(socket) {
             rooms[x[0]] = room1
             console.log(mes.utf8Data)
         } else if (x[2] == "join") {
-            rooms[x[0]].setPlayer2(x[1] , connection)
-            stanza = rooms[x[0]] 
-            conn1 = stanza.getCon1()
-            conn2 = stanza.getCon2()
-            
-            setTimeout(() => {  conn1.sendUTF("start-3"); }, 1000);
-            setTimeout(() => {  conn2.sendUTF("start-3"); }, 1000);
-
-            setTimeout(() => {  conn1.sendUTF("start-2"); }, 2000);
-            setTimeout(() => {  conn2.sendUTF("start-2"); }, 2000);
-
-            setTimeout(() => {  conn1.sendUTF("start-1"); }, 3000);
-            setTimeout(() => {  conn2.sendUTF("start-1"); }, 3000);
-
-            setTimeout(() => {  conn1.sendUTF("start-0"); }, 4000);
-            setTimeout(() => {  conn2.sendUTF("start-0"); }, 4000);
+            if(rooms[x[0]] == null){
+                connection.sendUTF("errore-La stanza non esiste");
+            } else {
+                rooms[x[0]].setPlayer2(x[1] , connection)
+                stanza = rooms[x[0]] 
+                conn1 = stanza.getCon1()
+                conn2 = stanza.getCon2()
                 
-            
-            console.log(mes.utf8Data)
+                setTimeout(() => {  conn1.sendUTF("start-3"); }, 1000);
+                setTimeout(() => {  conn2.sendUTF("start-3"); }, 1000);
+
+                setTimeout(() => {  conn1.sendUTF("start-2"); }, 2000);
+                setTimeout(() => {  conn2.sendUTF("start-2"); }, 2000);
+
+                setTimeout(() => {  conn1.sendUTF("start-1"); }, 3000);
+                setTimeout(() => {  conn2.sendUTF("start-1"); }, 3000);
+
+                setTimeout(() => {  conn1.sendUTF("start-0"); }, 4000);
+                setTimeout(() => {  conn2.sendUTF("start-0"); }, 4000);
+                    
+                
+                console.log(mes.utf8Data)
+            }
 
         } else if (x[2] == "endgame"){
 

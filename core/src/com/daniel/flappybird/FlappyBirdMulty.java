@@ -13,9 +13,13 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
+import com.badlogic.gdx.scenes.scene2d.ui.Window;
 
 import java.util.Random;
 
+import javax.swing.JOptionPane;
 import javax.xml.soap.Text;
 
 
@@ -192,6 +196,10 @@ public class FlappyBirdMulty extends ApplicationAdapter {
             } else if (messaggio[0].equals("endgame")) {
                 winner = 1;
                 gameState = 2;
+            } else if (messaggio[0].equals("errore")) {
+
+
+                    Gdx.app.exit();
             }
 
         }
@@ -271,12 +279,7 @@ public class FlappyBirdMulty extends ApplicationAdapter {
 
 
             if (Gdx.input.justTouched()) {
-                gameState = 1;
-                startGame();
-                score = 0;
-                scoringTube=0;
-                velocity = 0;
-                winner = 0;
+                Gdx.app.exit();
             }
         }
 
