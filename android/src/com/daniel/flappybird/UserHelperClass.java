@@ -1,7 +1,7 @@
 package com.daniel.flappybird;
 
 
-public class UserHelperClass {
+public class UserHelperClass implements Comparable<UserHelperClass> {
 
     String username,email;
     int score;
@@ -46,5 +46,18 @@ public class UserHelperClass {
     public void setScore(int score) {
         this.score = score;
     }
+
+    @Override
+    public int compareTo(UserHelperClass us1) {
+        if(this.getScore() > us1.getScore()){
+            return 1;
+        } else if(this.getScore() == us1.getScore()){
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+
+
 
 }

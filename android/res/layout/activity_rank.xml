@@ -24,15 +24,15 @@
     <TextView
         android:id="@+id/rank"
 
-        android:layout_width="265dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginEnd="124dp"
+        android:layout_width="184dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="8dp"
 
+        android:layout_marginTop="8dp"
         android:drawablePadding="10dp"
+
+
         android:ems="10"
-
-
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
@@ -42,24 +42,21 @@
         android:textColorHint="@color/colorWhite"
         android:textSize="24dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.439" />
+        app:layout_constraintTop_toBottomOf="@+id/flappylogo" />
 
     <TextView
         android:id="@+id/score"
 
-        android:layout_width="206dp"
-        android:layout_height="151dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginEnd="124dp"
+        android:layout_width="176dp"
+        android:layout_height="83dp"
+
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="26dp"
+
 
         android:drawablePadding="10dp"
         android:ems="10"
-
-
         android:paddingLeft="90dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
@@ -71,9 +68,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/rank"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629" />
+        app:layout_constraintVertical_bias="0.347" />
 
     <Button
         android:id="@+id/btnIndietro"
@@ -90,6 +88,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rank"
         app:layout_constraintVertical_bias="0.875" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="396dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnIndietro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="147dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="135dp"
+        android:text="LEADERBOARD"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rank" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

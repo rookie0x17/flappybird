@@ -2,11 +2,15 @@ package com.daniel.flappybird;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.UriMatcher;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +32,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static java.util.Collections.list;
+import static java.util.Collections.reverse;
+
 
 public class RankActivity extends AppCompatActivity {
 
@@ -35,6 +46,13 @@ public class RankActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     Button btnIndietro;
     private DatabaseReference mDatabase;
+
+    List<UserHelperClass> lista_utenti , lista_utenti_final;
+
+    //roba nuova
+    private DatabaseReference myref2;
+    private RecyclerView rec_view;
+    private RankActivityAdapter rank_adapter;
 
     private DatabaseReference UsersRef;
     FirebaseDatabase rootNode;
@@ -48,6 +66,44 @@ public class RankActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
+
+        //nuovo
+        myref2 = FirebaseDatabase.getInstance().getReference("users");
+        lista_utenti = new ArrayList<>();
+        lista_utenti_final = new ArrayList<>();
+
+
+
+        myref2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot posSnapshot : dataSnapshot.getChildren()) {
+                    UserHelperClass ticket = posSnapshot.getValue(UserHelperClass.class);
+
+                    if(!lista_utenti.contains(ticket)) {
+                        lista_utenti.add(ticket);
+                    }
+                    //caricamento.setVisibility(View.INVISIBLE);
+
+                }
+
+                Collections.sort(lista_utenti);
+                Collections.reverse(lista_utenti);
+
+                rank_adapter = new RankActivityAdapter(RankActivity.this, lista_utenti);
+                rec_view.setAdapter(rank_adapter);
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                //caricamento.setVisibility(View.INVISIBLE);
+
+            }
+        });
 
         btnIndietro=findViewById(R.id.btnIndietro);
         score=findViewById(R.id.score);
@@ -86,6 +142,11 @@ public class RankActivity extends AppCompatActivity {
                 startActivity(new Intent(RankActivity.this,ProfileActivity.class));
             }
         });
+
+        rec_view = findViewById(R.id.recycler);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        rec_view.setLayoutManager(manager);
+        rec_view.setHasFixedSize(true);
     }
 
     ValueEventListener evento2 = new ValueEventListener() {
